@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<!-- {% load staticfiles %} -->
+<html>
+
+<head>
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/highlight.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="leftContainer" class="container">
+        <div id="logoContainer">
+            <a href="../"><img id="logo" src="{% static "images/Tag1.png" %}" alt="" /></a>
+        </div>
+        <div id="searchContainer">
+            <input id="searchEntry" type="search">
+            <button id="textType" class="searchButton" value="text">
+                <div>txt</div>
+            </button>
+            <button id="searchSend" class="searchButton" value="add">
+                <div>add</div>
+            </button>
+            <button id="searchToggle" class="searchButton">
+                <div>&gt;</div>
+            </button>
+            <button id="regexFlags" class="searchButton"><img id="flagIcon"
+                    src="{% static "images/flagWhite.png" %}"></button>
+            <form id="flags">
+                <label class="flagOption hoverWhite"><input type="checkbox" name="flag" value="i"><span></span> &nbsp;(i)
+                    Case-insensitive </label>
+                <label class="flagOption hoverWhite"><input type="checkbox" name="flag" value="m"><span></span> &nbsp;(m) Multiline
+                    mode</label>
+                <label class="flagOption hoverWhite"><input type="checkbox" name="flag" value="s"><span></span> &nbsp;(s) Dotall
+                    Mode </label>
+                <label class="flagOption hoverWhite"><input type="checkbox" name="flag" value="u"><span></span> &nbsp;(u) Unicode
+                    Support </label>
+                <label class="flagOption hoverWhite"><input type="checkbox" name="flag" value="y"><span></span> &nbsp;(y) Sticky
+                    Mode </label>
+            </form>
+        </div>
+
+        <h1>Labels
+            <div id="add-label" class="addBtn">+</div>
+        </h1>
+        <hr>
+        <div id="label-list" class="listWrapper">
+
+        </div>
+        <h1>Documents
+            <div id="add-document" class="addBtn">+</div>
+        </h1>
+        <hr>
+        <div id="doc-list" class="listWrapper">
+
+        </div>
+        <div id="bButtonContainer">
+            <button id="downloadBtn" class="bButton">Download</button>
+            <button id="loadBtn" class="bButton">Load</button>
+            <button id="trainBtn" class="bButton">Train</button>
+            <button id="annotateBtn" class="bButton">Annotate</button>
+        </div>
+        <div id="dlContainer">
+            <button id="dlZip" class="dlButton">Download Zip</button>
+            <button id="dlJson" class="dlButton">Download Json</button>
+        </div>
+    </div>
+    <div id="center" class="container"></div>
+    <div id="centerContainer" class="container">
+        <div id="content" class="container">
+            <div id="highlightArea" class="hwt-container">
+                <textarea id="doc-view" class="hwt-content hwt-input" readonly="true"></textarea>
+            </div>
+        </div>
+    </div>
+    <div id="rightContainer" class="container">
+        <h1>Annotations</h1>
+        <hr>
+        <div id="recentArea">
+            <h2>Most Recent Highlight</h6>
+                <ul class="anno-group">
+                    <li id="recent" class="annotation hoverWhite"></li>
+                </ul>
+                <hr>
+        </div>
+        <div id='anno-list'></div>
+    </div>
+    </div>
+
+    <!-- No display -->
+    <ul id="delete-menu"></ul>
+    <input id="colorChangePicker" class="noDisplay" type="color">
+    <input id="fileInputControl" class="noDisplay" type="file" accept="text/plain,.json" multiple>
+    <a id="download_link" class="noDisplay" download="annotations.json" href=””></a>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- <script src="../node_modules/jszip/dist/jszip.js"></script>
+    <script src="../node_modules/file-saver/src/FileSaver.js"></script> -->
+    <script src="js/classes/annotation.js"></script>
+    <script src="js/classes/category.js"></script>
+    <script src="js/classes/doc.js"></script>
+    <script src="js/classes/tagmodel.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/leftPanel.js"></script>
+    <script src="js/rightPanel.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/chosen.jquery.min.js"></script>
+    <script src="./renderer.js"></script>
+</body>
+
+</html>
